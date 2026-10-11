@@ -3,7 +3,7 @@
   "displayName": "Todo List",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lifeforge-app/lifeforge-module-todoList.git"
+    "url": "https://github.com/Lifeforge-app/lifeforge-module-todo-list.git"
   },
   "version": "0.0.1",
   "type": "module",
