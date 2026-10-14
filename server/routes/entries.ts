@@ -100,7 +100,7 @@ export const getStatusCounter = forge
         .from(todoEntries)
         .where(statusCondition(status))
 
-      counters[status] = row.value
+      counters[status] = row?.value ?? 0
     }
 
     return response.ok(counters as never)
@@ -182,6 +182,10 @@ export const create = forge
       .values(mapEntry(body))
       .returning()
 
+    if (!created) {
+      return response.badRequest('Failed to create todo')
+    }
+
     return response.created(created)
   })
 
@@ -204,6 +208,10 @@ export const update = forge
       .set({ ...mapEntry(body), updated: new Date() })
       .where(eq(todoEntries.id, id))
       .returning()
+
+    if (!updated) {
+      return response.notFound()
+    }
 
     return response.ok(updated)
   })
@@ -250,6 +258,10 @@ export const toggleEntry = forge
       })
       .where(eq(todoEntries.id, id))
       .returning()
+
+    if (!updated) {
+      return response.notFound()
+    }
 
     return response.ok(updated)
   })

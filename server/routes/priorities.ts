@@ -55,6 +55,10 @@ export const create = forge
   .callback(async ({ db, body, response }) => {
     const [created] = await db.insert(todoPriorities).values(body).returning()
 
+    if (!created) {
+      return response.badRequest('Failed to create priority')
+    }
+
     return response.created(created)
   })
 
@@ -77,6 +81,10 @@ export const update = forge
       .set(body)
       .where(eq(todoPriorities.id, id))
       .returning()
+
+    if (!updated) {
+      return response.notFound()
+    }
 
     return response.ok(updated)
   })
