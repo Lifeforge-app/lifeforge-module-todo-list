@@ -35,24 +35,26 @@ function Header() {
   return (
     <Flex align="center" justify="between" px="md">
       <Flex direction="column" gap="sm">
-        <Text as="h1" size={{ base: '3xl', md: '4xl' }} weight="semibold">
-          {`${t(
-            `headers.${(() => {
-              const status = filter.status
+        <Text as="h1" weight="semibold">
+          <Text size={{ base: '3xl', md: '4xl' }}>
+            {`${t(
+              `headers.${(() => {
+                const status = filter.status
 
-              const hasFilter =
-                filter.list !== null ||
-                filter.tag !== null ||
-                filter.priority !== null
+                const hasFilter =
+                  filter.list !== null ||
+                  filter.tag !== null ||
+                  filter.priority !== null
 
-              if (status === null || status === '') {
-                return hasFilter ? 'filtered' : 'all'
-              }
+                if (status === null || status === '') {
+                  return hasFilter ? 'filtered' : 'all'
+                }
 
-              return status === 'today' ? 'todays' : status
-            })().toLowerCase()}Tasks`
-          )}`.trim()}{' '}
-          <Text as="span" color="muted" size="base">
+                return status === 'today' ? 'todays' : status
+              })().toLowerCase()}Tasks`
+            )}`.trim()}
+          </Text>{' '}
+          <Text as="span" color="muted">
             ({entries.length})
           </Text>
         </Text>
