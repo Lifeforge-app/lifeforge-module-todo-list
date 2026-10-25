@@ -87,8 +87,17 @@
       "title": "No Tasks Available",
       "description": "No tasks available. Add a new task to get started!"
     },
-    "lists": "No Lists Available",
-    "tags": "No Tags Available",
-    "priorities": "No Priorities Available"
+    "lists": {
+      "title": "No Lists Available",
+      "description": "You haven't added any lists yet. Click the button above to add one."
+    },
+    "tags": {
+      "title": "No Tags Available",
+      "description": "You haven't added any tags yet. Click the button above to add one."
+    },
+    "priorities": {
+      "title": "No Priorities Available",
+      "description": "You haven't added any priorities yet. Click the button above to add one."
+    }
   }
 }

@@ -87,8 +87,17 @@
       "title": "Tiada Tugasan Tersedia",
       "description": "Tiada tugasan tersedia. Tambah tugasan baru untuk bermula!"
     },
-    "lists": "Tiada Senarai Tersedia",
-    "tags": "Tiada Tag Tersedia",
-    "priorities": "Tiada Keutamaan Tersedia"
+    "lists": {
+      "title": "Tiada Senarai Tersedia",
+      "description": "Anda belum menambah sebarang senarai lagi. Klik butang di atas untuk menambah satu."
+    },
+    "tags": {
+      "title": "Tiada Tag Tersedia",
+      "description": "Anda belum menambah sebarang tag lagi. Klik butang di atas untuk menambah satu."
+    },
+    "priorities": {
+      "title": "Tiada Keutamaan Tersedia",
+      "description": "Anda belum menambah sebarang keutamaan lagi. Klik butang di atas untuk menambah satu."
+    }
   }
 }

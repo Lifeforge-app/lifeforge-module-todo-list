@@ -1,7 +1,11 @@
 import { useCallback } from 'react'
 
-import { useModuleTranslation } from '@lifeforge/localization'
-import { SidebarTitle, Text, WithQuery, useModalStore } from '@lifeforge/ui'
+import {
+  EmptyStateScreen,
+  SidebarTitle,
+  WithQuery,
+  useModalStore
+} from '@lifeforge/ui'
 
 import ModifyTagModal from '@/modals/ModifyTagModal'
 import { useTodoListContext } from '@/providers/TodoListProvider'
@@ -10,7 +14,6 @@ import TaskTagListItem from './TaskTagListItem'
 
 function TaskTagList() {
   const { open } = useModalStore()
-  const { t } = useModuleTranslation()
   const { tagsListQuery } = useTodoListContext()
 
   const handleCreateTag = useCallback(() => {
@@ -37,9 +40,11 @@ function TaskTagList() {
               ))}
             </>
           ) : (
-            <Text align="center" color="muted">
-              {t('empty.tags')}
-            </Text>
+            <EmptyStateScreen
+              smaller
+              icon="tabler:tag"
+              message={{ id: 'tags' }}
+            />
           )
         }
       </WithQuery>

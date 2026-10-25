@@ -1,7 +1,11 @@
 import { useCallback } from 'react'
 
-import { useModuleTranslation } from '@lifeforge/localization'
-import { SidebarTitle, Text, WithQuery, useModalStore } from '@lifeforge/ui'
+import {
+  EmptyStateScreen,
+  SidebarTitle,
+  WithQuery,
+  useModalStore
+} from '@lifeforge/ui'
 
 import ModifyPriorityModal from '@/modals/ModifyPriorityModal'
 import { useTodoListContext } from '@/providers/TodoListProvider'
@@ -10,7 +14,6 @@ import TaskPriorityListItem from './TaskPriorityListItem'
 
 function TaskPriorityList() {
   const { open } = useModalStore()
-  const { t } = useModuleTranslation()
   const { prioritiesQuery } = useTodoListContext()
 
   const handleCreatePriority = useCallback(() => {
@@ -37,9 +40,11 @@ function TaskPriorityList() {
               ))}
             </>
           ) : (
-            <Text align="center" color="muted">
-              {t('empty.priorities')}
-            </Text>
+            <EmptyStateScreen
+              smaller
+              icon="tabler:adjustments"
+              message={{ id: 'priorities' }}
+            />
           )
         }
       </WithQuery>

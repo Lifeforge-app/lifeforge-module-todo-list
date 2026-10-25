@@ -1,7 +1,11 @@
 import { useCallback } from 'react'
 
-import { useModuleTranslation } from '@lifeforge/localization'
-import { SidebarTitle, Text, WithQuery, useModalStore } from '@lifeforge/ui'
+import {
+  EmptyStateScreen,
+  SidebarTitle,
+  WithQuery,
+  useModalStore
+} from '@lifeforge/ui'
 
 import ModifyListModal from '@/modals/ModifyListModal'
 import { useTodoListContext } from '@/providers/TodoListProvider'
@@ -10,7 +14,6 @@ import TaskListListItem from './TaskListListItem'
 
 function TaskListList() {
   const { open } = useModalStore()
-  const { t } = useModuleTranslation()
   const { listsQuery } = useTodoListContext()
 
   const handleCreateList = useCallback(() => {
@@ -37,9 +40,11 @@ function TaskListList() {
               ))}
             </>
           ) : (
-            <Text align="center" color="muted">
-              {t('empty.lists')}
-            </Text>
+            <EmptyStateScreen
+              smaller
+              icon="tabler:list"
+              message={{ id: 'lists' }}
+            />
           )
         }
       </WithQuery>
