@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/Lifeforge-app/lifeforge-module-todo-list.git"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "author": "Melvin Chia <melvinchia623600@gmail.com>",
   "description": "Never forget your tasks again (except maybe laundry).",
