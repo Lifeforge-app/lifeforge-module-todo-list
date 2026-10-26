@@ -7,8 +7,8 @@ import TaskItem from './TaskItem'
 function TaskList({ entries }: { entries: TodoListEntry[] }) {
   return (
     <Box flex="1" minHeight="0" mt="md">
-      <Scrollbar>
-        <Stack as="ul" flex="1" gap="sm" pb="xl" px="md">
+      <Scrollbar pb={{ base: 'xl', md: 'none' }}>
+        <Stack as="ul" flex="1" gap="sm" px="md">
           {entries.map(entry => (
             <TaskItem key={entry.id} entry={entry} />
           ))}
